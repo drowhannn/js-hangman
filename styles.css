@@ -1,0 +1,20 @@
+#hangman__container svg {
+  height: 250px;
+  width: 200px;
+  stroke: red;
+  stroke-width: 2px;
+  fill: transparent;
+}
+
+#word__container span {
+  border-bottom: 3px solid red;
+  margin: 15px;
+  padding-right: 25px;
+}
+#word__container {
+  padding: 10px;
+}
+
+.figure__part {
+  display: none;
+}
