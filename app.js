@@ -27,11 +27,113 @@ letters = [
   "z",
 ];
 
-let word = rohandhimal;
+let randomwords = [
+  "madrigals",
+  "sprig",
+  "collyria",
+  "banisters",
+  "zorilles",
+  "rekeys",
+  "syphering",
+  "forejudges",
+  "wiseass",
+  "wetsuit",
+  "territories",
+  "xenodiagnoses",
+  "santalols",
+  "recycle",
+  "warthogs",
+  "embosomed",
+  "pardine",
+  "intermolecular",
+  "mildest",
+  "pharyngals",
+  "indicates",
+  "shamanists",
+  "ichthyofaunas",
+  "pearlescent",
+  "guides",
+  "frizzle",
+  "fullered",
+  "antisexual",
+  "nucleates",
+  "angiographic",
+  "utopists",
+  "handoff",
+  "shoeless",
+  "synapses",
+  "synergias",
+  "dupers",
+  "cadastral",
+  "clued",
+  "tourer",
+  "register",
+  "clambakes",
+  "maritally",
+  "handinesses",
+  "trireme",
+  "roentgenogram",
+  "tweaks",
+  "napiform",
+  "monkeypot",
+  "salinometer",
+  "corybants",
+  "daybreak",
+  "underarm",
+  "cigars",
+  "coacervation",
+  "jeton",
+  "impercipiences",
+  "trapezial",
+  "overplaids",
+  "neurilemmas",
+  "dilater",
+  "bivalence",
+  "concealingly",
+  "choked",
+  "longevities",
+  "monetise",
+  "griminesses",
+  "precative",
+  "tip",
+  "survivances",
+  "exacting",
+  "trike",
+  "hemophiliacs",
+  "statists",
+  "antepenultimas",
+  "prenotifying",
+  "misconnections",
+  "dollishnesses",
+  "preachier",
+  "diminuendos",
+  "aminoacidurias",
+  "nonobjectivism",
+  "tentacular",
+  "kists",
+  "cellaret",
+  "haircuttings",
+  "allopolyploid",
+  "phencyclidine",
+  "wingman",
+  "civilized",
+  "baseness",
+  "banksia",
+  "overdue",
+  "certificated",
+  "sialids",
+  "derisions",
+  "nereis",
+  "irritancy",
+  "actionably",
+  "shirtdresses",
+  "retarding",
+];
+let correctWord = randomwords[Math.floor(Math.random() * 100)]; //0-0.99
 
 let mistakes = 0;
 let figureParts = document.getElementsByClassName("figure__part");
-console.log(figureParts);
+// console.log(figureParts);
 
 let incorrectLetters = "";
 
@@ -39,8 +141,8 @@ const checkWord = (e) => {
   let isIncorrect = true;
   let clickedLetter = e.target.innerHTML;
   let letterSpans = document.querySelectorAll("span");
-  for (i = 0; i < word.length; i++) {
-    if (word[i] === clickedLetter) {
+  for (let i = 0; i < correctWord.length; i++) {
+    if (correctWord[i] === clickedLetter) {
       letterSpans[i].innerHTML = clickedLetter;
       isIncorrect = false;
     }
@@ -50,7 +152,7 @@ const checkWord = (e) => {
       " " + clickedLetter;
     figureParts[mistakes].style.display = "block";
     mistakes++;
-    if (mistakes === 5) alert("Game Over");
+    if (mistakes === 6) alert("Game Over");
   }
 
   e.target.disabled = true;
@@ -65,7 +167,7 @@ letters.forEach((letter) => {
 });
 
 let wordContainer = document.getElementById("word__container");
-for (i = 0; i < word.length; i++) {
+for (i = 0; i < correctWord.length; i++) {
   let span = document.createElement("span");
   span.innerHTML = "";
   wordContainer.appendChild(span);
