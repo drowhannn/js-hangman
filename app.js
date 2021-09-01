@@ -169,6 +169,6 @@ letters.forEach((letter) => {
 let wordContainer = document.getElementById("word__container");
 for (i = 0; i < correctWord.length; i++) {
   let span = document.createElement("span");
-  span.innerHTML = "";
+  span.innerHTML = "_";
   wordContainer.appendChild(span);
 }
