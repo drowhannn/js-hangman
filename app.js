@@ -131,7 +131,8 @@ let randomwords = [
 ];
 let correctWord = randomwords[Math.floor(Math.random() * 100)]; //0-0.99
 
-let mistakes = 0;
+let mistakes = 0,
+  corrects = 0;
 let figureParts = document.getElementsByClassName("figure__part");
 // console.log(figureParts);
 
@@ -145,6 +146,7 @@ const checkWord = (e) => {
     if (correctWord[i] === clickedLetter) {
       letterSpans[i].innerHTML = clickedLetter;
       isIncorrect = false;
+      corrects++;
     }
   }
   if (isIncorrect) {
@@ -152,7 +154,13 @@ const checkWord = (e) => {
       " " + clickedLetter;
     figureParts[mistakes].style.display = "block";
     mistakes++;
-    if (mistakes === 6) alert("Game Over");
+    if (mistakes === 6)
+      document.getElementById("alertContainer").style.display = "block";
+  } else {
+    if (corrects === correctWord.length) {
+      document.getElementById("alertH1").innerHTML = "You Win!";
+      document.getElementById("alertContainer").style.display = "block";
+    }
   }
 
   e.target.disabled = true;
